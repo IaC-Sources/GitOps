@@ -1,12 +1,6 @@
 pipeline {
   agent any
-  stages {
-    stage('Deploy start') {
-      steps {
-        slackSend(message: "Deploy ${env.BUILD_NUMBER} Started"
-        , color: 'good', tokenCredentialId: 'slack-key')
-      }
-    }      
+  stages {   
     stage('git pull') {
       steps {
         // https://github.com/IaC-Sources/GitOps.git will replace by sed command before RUN
